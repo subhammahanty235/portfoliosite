@@ -1,25 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
+import Home from './react-menu/Home'
+import About from './react-menu/About'
+import Projects from './react-menu/Projects'
+import Contact from './react-menu/Contact'
+import Navbar from './react-menu/Navbar';
+import Footer from './react-menu/Footer'
+import {router , Routes , Route , Redirect} from 'react-router-dom'
+import { useState} from 'react';
 
 function App() {
+  
+   
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+
+        <Navbar/>
+       
+        <Routes>
+          <Route exact path="/" element={<Home/>}></Route>
+          {/* <Route path="/About" element={<About/>}></Route> */}
+          <Route exact path="/About" element={<About/>}> </Route>
+          
+          <Route exact path="/Projects" element={<Projects/>}> </Route>
+          <Route exact path="/Contact" element={<Contact/>}> </Route>
+          
+
+        </Routes>
+        {/* <Footer/> */}
+      
+        
+    </>
   );
 }
 
 export default App;
+
